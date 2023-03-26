@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import URL_SHORTENR_WEBSITE, URL_SHORTENR_WEBSITE
+from info import URL_SHORTENR_WEBSITE, URL_SHORTENR_WEBSITE_API
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
