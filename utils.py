@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import URL_SHORTENR_WEBSITE, URL_SHORTNER_WEBSITE_API 
+from info import * 
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
@@ -381,7 +381,7 @@ async def get_shortlink(link):
     if "http" == https:
         https = "https"
         link = link.replace("http", https)
-    url = f'https://easysky.in'
+    url = f'https://easysky.in/api'
     params = {'api': '8abee50e122616d233cb904039c4fe594fe8574c',
               'url': link,
               }
