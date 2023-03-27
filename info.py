@@ -20,10 +20,9 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 
 PICS = (environ.get('PICS', 'https://graph.org/file/f612a75d2304d0fea7ce6.jpg https://graph.org/file/c5c38a0cf5e83726ab894.jpg')).split()
 
-
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1058015838').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001638006524').split()]
-auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1058015838 35536090 1011763379 5159353560 2145205990 1305566280 710303887 720791604 835536090').split()]
+auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1058015838 1305566280 835536090 710303887').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL', '-1001521700370')
 auth_grp = environ.get('AUTH_GROUP')
