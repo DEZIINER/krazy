@@ -22,7 +22,7 @@ PICS = (environ.get('PICS', 'https://te.legra.ph/file/343a6705d3bcabe7335fb.jpg 
 
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1058015838').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001638006524').split()]
-auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1058015838 1305566280 835536090 710303887 1011763379').split()]
+auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1058015838 835536090 1305566280 710303887 1011763379').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL', '-1001521700370')
 auth_grp = environ.get('AUTH_GROUP')
