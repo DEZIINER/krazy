@@ -702,7 +702,7 @@ async def global_filters(client, message, text=False):
                                 await asyncio.sleep(SELF_DELETE_SECONDS)
                                 await k.delete()
                     elif btn == "[]":
-                        h = await client.send_cached_media(
+                        k = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
@@ -713,7 +713,7 @@ async def global_filters(client, message, text=False):
                             await k.delete()
                     else:
                         button = eval(btn)
-                        h = await message.reply_cached_media(
+                        k = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
