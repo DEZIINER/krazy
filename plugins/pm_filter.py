@@ -681,17 +681,17 @@ async def global_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            h = await client.send_message(
+                            k = await client.send_message(
                                 group_id, 
                                 reply_text, 
                                 disable_web_page_preview=True,
                                 reply_to_message_id=reply_id)
                             if SELF_DELETE:
                                 await asyncio.sleep(SELF_DELETE_SECONDS)
-                                await h.delete()
+                                await k.delete()
                         else:
                             button = eval(btn)
-                            h = await client.send_message(
+                            k = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
@@ -700,7 +700,7 @@ async def global_filters(client, message, text=False):
                             )
                             if SELF_DELETE:
                                 await asyncio.sleep(SELF_DELETE_SECONDS)
-                                await h.delete()
+                                await k.delete()
                     elif btn == "[]":
                         h = await client.send_cached_media(
                             group_id,
@@ -710,7 +710,7 @@ async def global_filters(client, message, text=False):
                         )
                         if SELF_DELETE:
                             await asyncio.sleep(SELF_DELETE_SECONDS)
-                            await h.delete()
+                            await k.delete()
                     else:
                         button = eval(btn)
                         h = await message.reply_cached_media(
@@ -721,7 +721,7 @@ async def global_filters(client, message, text=False):
                         )
                         if SELF_DELETE:
                             await asyncio.sleep(SELF_DELETE_SECONDS)
-                            await h.delete()
+                            await k.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
