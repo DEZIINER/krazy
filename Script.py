@@ -12,7 +12,7 @@ def is_enabled(value, default):
 
 class script(object):
     START_TXT = """<i><b>🎃 Helo {}, I'm <a href=https://telegram.me/{}>{}</a></i></b> \n\n<i><b>🎗I Can Provide You Any Movies, Web-Series, Anime, K-Dramas, Animation, etc.,</i></b>"""
-    HELP_TXT = """<b>🔥 <u>Download & Watch Any Movie, Series, Anime etc., For Free 🤩</u> \n\n🎗[Group]: https://t.me/+vRzjMbeBXUg5NTg9 \n\n🔆 Join The Above Group & Type The Movie/Series Name You Want👆</b>"""
+    HELP_TXT = """<b>🔥 <u>Download & Watch Any Movie, Series, Anime etc., For Free 🤩</u> \n\n🎗[Group]: https://t.me/+lYD3tuR0P9szYzk9 \n\n🔆 Join The Above Group & Type The Movie/Series Name You Want👆</b>"""
     ABOUT_TXT = """<i><b>🥁 Follow These Steps To Connect Me To Your Group👇</b>
 
 1. Click on "</i><i><b>Click Here To Add Me</b>" 
