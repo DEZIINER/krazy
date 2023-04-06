@@ -45,11 +45,14 @@ async def save_group(bot, message):
             reply_markup=reply_markup)
     else:
         for u in message.new_chat_members:
-            await message.reply_photo(
+            k = await message.reply_photo(
             photo="https://graph.org/file/75d4fcc66598ea1ef4941.jpg",                                               
                                                  caption=f'<b><i>🔆 "HEROFLiX • GROUP" 亗 🔆\n•───────────────────• \n⚜Hey {u.mention}, Welcome To HeroFlix • Group. You Can Request Any Movies, Web-Series, Anime, K-Dramas, Animation, etc., here....</i></b>',
                                                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❗How To Request & Download❗', url='https://t.me/HeroFlix/1541') ] ] )
                 )
+            if SELF_DELETE:
+                await asyncio.sleep(SELF_DELETE_SECONDS)
+                await k.delete()
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
