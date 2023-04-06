@@ -43,7 +43,7 @@ async def start(client, message):
         ], [
             InlineKeyboardButton('❓How To Use Me❓', callback_data='help'),
         ], [            
-            InlineKeyboardButton('🔅 Group', url='https://telegram.me/+EdJU1Hqk1N80ZWQ1'),
+            InlineKeyboardButton('🔅 Group', url='https://t.me/+lYD3tuR0P9szYzk9'),
             InlineKeyboardButton('🤖 Updates', url='https://telegram.me/HeroFlix')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -88,7 +88,7 @@ async def start(client, message):
         ], [
             InlineKeyboardButton('❓How To Use Me❓', callback_data='help'),
         ], [            
-            InlineKeyboardButton('🔅 Group', url='https://telegram.me/+EdJU1Hqk1N80ZWQ1'),
+            InlineKeyboardButton('🔅 Group', url='https://t.me/+lYD3tuR0P9szYzk9'),
             InlineKeyboardButton('🤖 Updates', url='https://telegram.me/HeroFlix')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
