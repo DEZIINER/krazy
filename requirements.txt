@@ -1,4 +1,4 @@
-git+https://github.com/Joelkb/cinemagoer
+git+https://github.com/cinemagoer/cinemagoer
 pyrogram>=2.0.103
 tgcrypto
 pymongo[srv]==3.12.3
