@@ -112,14 +112,14 @@ async def get_all_filters(client, message):
         parse_mode=enums.ParseMode.MARKDOWN
     )
         
-@Client.on_message(filters.command('delg') & filters.incoming & filters.user(ADMINS))
+@Client.on_message(filters.command('del') & filters.incoming & filters.user(ADMINS))
 async def deletegilter(client, message):
     try:
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
             "<b><i>❓How To Delete A Filter❓</i></b>\n\n"
-            "<b><i>🔆Send /delg Filter Name</i></b>",
+            "<b><i>🔆Send /del Filter Name</i></b>",
             quote=True
         )
         return
