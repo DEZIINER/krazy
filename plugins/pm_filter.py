@@ -352,25 +352,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
-                return
-            elif settings['botpm']:
-                await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
-                return
-            else:
-                await client.send_cached_media(
-                    chat_id=query.from_user.id,
-                    file_id=file_id,
-                    caption=f_caption,
-                    protect_content=True if ident == "filep" else False 
-                )
-                await query.answer('I Sent The File To You Privately', show_alert=True)
-        except UserIsBlocked:
-            await query.answer('You Are Blocked to use me !', show_alert=True)
-        except PeerIdInvalid:
-            await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
-        except Exception as e:
-            await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
-    elif query.data.startswith("checksub"):
+
+        elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
             return
@@ -557,30 +540,18 @@ async def auto_filter(client, msg, spoll=False):
             title=imdb['title'],
             votes=imdb['votes'],
             aka=imdb["aka"],
-            seasons=imdb["seasons"],
-            box_office=imdb['box_office'],
             localized_title=imdb['localized_title'],
             kind=imdb['kind'],
             imdb_id=imdb["imdb_id"],
             cast=imdb["cast"],
             runtime=imdb["runtime"],
-            countries=imdb["countries"],
-            certificates=imdb["certificates"],
-            languages=imdb["languages"],
             director=imdb["director"],
             writer=imdb["writer"],
-            producer=imdb["producer"],
-            composer=imdb["composer"],
-            cinematographer=imdb["cinematographer"],
-            music_team=imdb["music_team"],
-            distributors=imdb["distributors"],
-            release_date=imdb['release_date'],
             year=imdb['year'],
             genres=imdb['genres'],
             poster=imdb['poster'],
             plot=imdb['plot'],
             rating=imdb['rating'],
-            url=imdb['url'],
             **locals()
         )
     else:      
