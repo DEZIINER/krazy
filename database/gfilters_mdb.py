@@ -1,4 +1,3 @@
-
 import pymongo
 from info import DATABASE_URI, DATABASE_NAME
 from pyrogram import enums
@@ -11,8 +10,8 @@ mydb = myclient["GlobalFilters"]
 
 
 
-async def add_gfilter(gfilters, text, reply_text, btn, file, alert):
-    mycol = mydb[str(gfilters)]
+async def add_filter(filters, text, reply_text, btn, file, alert):
+    mycol = mydb[str(filters)]
     # mycol.create_index([('text', 'text')])
 
     data = {
@@ -29,8 +28,8 @@ async def add_gfilter(gfilters, text, reply_text, btn, file, alert):
         logger.exception('Some error occured!', exc_info=True)
              
      
-async def find_gfilter(gfilters, name):
-    mycol = mydb[str(gfilters)]
+async def find_filter(filters, name):
+    mycol = mydb[str(filters)]
     
     query = mycol.find( {"text":name})
     # query = mycol.find( { "$text": {"$search": name}})
@@ -48,8 +47,8 @@ async def find_gfilter(gfilters, name):
         return None, None, None, None
 
 
-async def get_gfilters(gfilters):
-    mycol = mydb[str(gfilters)]
+async def get_filters(filters):
+    mycol = mydb[str(filters)]
 
     texts = []
     query = mycol.find()
@@ -62,8 +61,8 @@ async def get_gfilters(gfilters):
     return texts
 
 
-async def delete_gfilter(message, text, gfilters):
-    mycol = mydb[str(gfilters)]
+async def delete_filter(message, text, filters):
+    mycol = mydb[str(filters)]
     
     myquery = {'text':text }
     query = mycol.count_documents(myquery)
@@ -75,14 +74,14 @@ async def delete_gfilter(message, text, gfilters):
             parse_mode=enums.ParseMode.MARKDOWN
         )
     else:
-        await message.reply_text("Couldn't find that gfilter!", quote=True)
+        await message.reply_text("Couldn't find that filter!", quote=True)
 
-async def del_allg(message, gfilters):
-    if str(gfilters) not in mydb.list_collection_names():
+async def del_all(message, filters):
+    if str(filters) not in mydb.list_collection_names():
         await message.edit_text("Nothin!")
         return
 
-    mycol = mydb[str(gfilters)]
+    mycol = mydb[str(filters)]
     try:
         mycol.drop()
         await message.edit_text(f"All filters has been removed")
@@ -90,14 +89,14 @@ async def del_allg(message, gfilters):
         await message.edit_text("Couldn't remove all filters!")
         return
 
-async def count_gfilters(gfilters):
-    mycol = mydb[str(gfilters)]
+async def count_filters(filters):
+    mycol = mydb[str(filters)]
 
     count = mycol.count()
     return False if count == 0 else count
 
 
-async def gfilter_stats():
+async def filter_stats():
     collections = mydb.list_collection_names()
 
     if "CONNECTION" in collections:
