@@ -14,7 +14,7 @@ from utils import get_file_id, parser, split_quotes
 from info import ADMINS
 
 
-@Client.on_message(filters.command(['filter', 'add']) & filters.incoming & filters.user(ADMINS))
+@Client.on_message(filters.command(['add']) & filters.incoming & filters.user(ADMINS))
 async def addfilter(client, message):
     args = message.text.html.split(None, 1)
 
@@ -83,7 +83,7 @@ async def addfilter(client, message):
     )
 
 
-@Client.on_message(filters.command(['viewfilters', 'filters']) & filters.incoming & filters.user(ADMINS))
+@Client.on_message(filters.command(['filters']) & filters.incoming & filters.user(ADMINS))
 async def get_all_filters(client, message):
     texts = await get_filters('filters')
     count = await count_filters('filters')
@@ -113,7 +113,7 @@ async def get_all_filters(client, message):
     )
         
 @Client.on_message(filters.command('del') & filters.incoming & filters.user(ADMINS))
-async def deletegilter(client, message):
+async def deletefilter(client, message):
     try:
         cmd, text = message.text.split(" ", 1)
     except:
@@ -129,7 +129,7 @@ async def deletegilter(client, message):
     await delete_filter(message, query, 'filters')
 
 
-@Client.on_message(filters.command('delallg') & filters.user(ADMINS))
+@Client.on_message(filters.command('delall') & filters.user(ADMINS))
 async def delallfill(client, message):
     await message.reply_text(
             f"<b>❓Delete All Filters❓</b>",
@@ -143,7 +143,7 @@ async def delallfill(client, message):
 
 @Client.on_callback_query(filters.regex("gconforme"))
 async def dellacbd(client, message):
-    await del_allg(message.message, 'filters')
+    await del_all(message.message, 'filters')
     return await message.reply("👍 Done")
 
 
