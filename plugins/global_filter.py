@@ -2,11 +2,11 @@ import io
 from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.gfilters_mdb import(
-   add_gfilter,
-   get_gfilters,
-   delete_gfilter,
-   count_gfilters,
-   del_allg
+   add_filter,
+   get_filters,
+   delete_filter,
+   count_filters,
+   del_all
 )
 
 from database.connections_mdb import active_connection
@@ -15,7 +15,7 @@ from info import ADMINS
 
 
 @Client.on_message(filters.command(['filter', 'add']) & filters.incoming & filters.user(ADMINS))
-async def addgfilter(client, message):
+async def addfilter(client, message):
     args = message.text.html.split(None, 1)
 
     if len(args) < 2:
@@ -74,7 +74,7 @@ async def addgfilter(client, message):
     else:
         return
 
-    await add_gfilter('gfilters', text, reply_text, btn, fileid, alert)
+    await add_filter('filters', text, reply_text, btn, fileid, alert)
 
     await message.reply_text(
         f"**🆕 Filter** `{text}` **Added ✔**",
@@ -83,20 +83,20 @@ async def addgfilter(client, message):
     )
 
 
-@Client.on_message(filters.command(['viewgfilters', 'gfilters']) & filters.incoming & filters.user(ADMINS))
-async def get_all_gfilters(client, message):
-    texts = await get_gfilters('gfilters')
-    count = await count_gfilters('gfilters')
+@Client.on_message(filters.command(['viewfilters', 'filters']) & filters.incoming & filters.user(ADMINS))
+async def get_all_filters(client, message):
+    texts = await get_filters('filters')
+    count = await count_filters('filters')
     if count:
-        gfilterlist = f"**🗃 Total Filters** [ {count} ]\n\n"
+        filterlist = f"**🗃 Total Filters** [ {count} ]\n\n"
 
         for text in texts:
             keywords = " ×  `{}`\n".format(text)
 
-            gfilterlist += keywords
+            filterlist += keywords
 
-        if len(gfilterlist) > 4096:
-            with io.BytesIO(str.encode(gfilterlist.replace("`", ""))) as keyword_file:
+        if len(filterlist) > 4096:
+            with io.BytesIO(str.encode(filterlist.replace("`", ""))) as keyword_file:
                 keyword_file.name = "keywords.txt"
                 await message.reply_document(
                     document=keyword_file,
@@ -104,16 +104,16 @@ async def get_all_gfilters(client, message):
                 )
             return
     else:
-        gfilterlist = f"<b>📂 There Are No Filters</b>"
+        filterlist = f"<b>📂 There Are No Filters</b>"
 
     await message.reply_text(
-        text=gfilterlist,
+        text=filterlist,
         quote=True,
         parse_mode=enums.ParseMode.MARKDOWN
     )
         
 @Client.on_message(filters.command('delg') & filters.incoming & filters.user(ADMINS))
-async def deletegfilter(client, message):
+async def deletegilter(client, message):
     try:
         cmd, text = message.text.split(" ", 1)
     except:
@@ -126,11 +126,11 @@ async def deletegfilter(client, message):
 
     query = text.lower()
 
-    await delete_gfilter(message, query, 'gfilters')
+    await delete_filter(message, query, 'filters')
 
 
 @Client.on_message(filters.command('delallg') & filters.user(ADMINS))
-async def delallgfill(client, message):
+async def delallfill(client, message):
     await message.reply_text(
             f"<b>❓Delete All Filters❓</b>",
             reply_markup=InlineKeyboardMarkup([
@@ -143,7 +143,7 @@ async def delallgfill(client, message):
 
 @Client.on_callback_query(filters.regex("gconforme"))
 async def dellacbd(client, message):
-    await del_allg(message.message, 'gfilters')
+    await del_allg(message.message, 'filters')
     return await message.reply("👍 Done")
 
 
