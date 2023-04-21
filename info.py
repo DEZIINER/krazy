@@ -27,7 +27,7 @@ auth_channel = environ.get('AUTH_CHANNEL', '-1001521700370')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-
+USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Testing:Testing@cluster0.fkelfqj.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Ariana")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Ariana')
@@ -35,6 +35,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Ariana')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001652564383'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', '5884491121')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
+
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '🎗<a href="https://telegram.me/HEROFLiX"><b><i>{file_name}</i></b></a>\n━━━━━━━━━━━━━━━━━━━━\n<b><i>🔆🔆 彡 [ @HEROFLiX ] 彡 🔆🔆</b></i>')
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", "<b><i>{file_caption}</i></b>")
