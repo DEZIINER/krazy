@@ -491,7 +491,7 @@ async def auto_filter(client, msg, spoll=False):
         if 2 < len(message.text) < 100:
             search = message.text
             search_ = re.sub(
-                r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|dub(bed)*|:|{(})*|(|netflix|(())*|zee5|-|_|&|;|)|series|bluray|latest|anime|t(h)?emil|file|season(s)*|episode(s)*|und(o)*|full\smovie|any(one)|with\ssubtitle(s)?)",
+                r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|dub(bed)*|netflix|(||zee5|)|-|_|&|;|)|series|bluray|latest|anime|t(h)?emil|file|season(s)*|episode(s)*|und(o)*|full\smovie|any(one)|with\ssubtitle(s)?)",
                 "", search, flags=re.IGNORECASE)
             files, offset, total_results = await get_search_results(search_.lower(), offset=0, filter=True)
             if not files:
