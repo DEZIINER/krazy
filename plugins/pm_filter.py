@@ -610,6 +610,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply('<b><i>⚠ 404 Error, No Results❗</i></b> \n\n<b><i>🚫 The Reason❓ [</i></b><a href="https://t.me/HeroFlix/1371"><b><i>Click Here</i></b></a><b><i>]</i></b> \n<b><i>📮 Please Follow Request Tips !!</i></b> \n<b><i>🔆 Request Tips › [</i></b><a href="https://t.me/HEROFLiX/894"><b><i>Click Here</i></b></a><b><i>]</i></b>')
+        disable_web_page_preview=True
         await asyncio.sleep(20)
         await k.delete()
         return
@@ -639,6 +640,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply('<b><i>⚠ 404 Error, No Results❗</i></b> \n\n<b><i>🚫 The Reason❓ [</i></b><a href="https://t.me/HeroFlix/1371"><b><i>Click Here</i></b></a><b><i>]</i></b> \n<b><i>📮 Please Follow Request Tips !!</i></b> \n<b><i>🔆 Request Tips › [</i></b><a href="https://t.me/HEROFLiX/894"><b><i>Click Here</i></b></a><b><i>]</i></b>')
+        disable_web_page_preview=True
         await asyncio.sleep(20)
         await k.delete()
         return
