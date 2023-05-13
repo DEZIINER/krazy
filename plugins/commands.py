@@ -77,7 +77,7 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://telegram.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**❗ʏᴏᴜ ᴅɪᴅɴ'ᴛ ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ sᴏ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴀɴʏ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs. \n♻ ᴄʟɪᴄᴋ ᴏɴ 'ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴊᴏɪɴ' ʙᴇʟᴏᴡ & ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʀʏ ᴀɢᴀɪɴ**",
+            text="__❗You Didn't Join Our Main Channel So You Can't Get Any Movie or Series. \n\n🎗Click On "Click Here To Join" Below & Join Our Main Channel, Then Click On 'Try Again'.__",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
