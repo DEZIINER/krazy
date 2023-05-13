@@ -77,7 +77,7 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://telegram.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**🔆 You Must Be A Member Of Our Channel To Use Me!!! \n\n 🔆 मुझे इस्तेमाल करने के लिए आपको हमारे चैनल का सदस्य होना चाहिए!!! \n\n🥁 Main Channel » @HeroFlix **",
+            text="**❗ʏᴏᴜ ᴅɪᴅɴ'ᴛ ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ sᴏ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢᴇᴛ ᴀɴʏ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs. \n♻ ᴄʟɪᴄᴋ ᴏɴ 'ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴊᴏɪɴ' ʙᴇʟᴏᴡ & ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʀʏ ᴀɢᴀɪɴ**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
