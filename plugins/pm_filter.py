@@ -654,7 +654,7 @@ async def advantage_spell_chok(msg):
     btn.append([InlineKeyboardButton(text="××××× ⟨ Close ⟩ ×××××", callback_data=f'spolling#{user}#close_spellcheck')])
     k = await msg.reply("<b>❗Enter Correct Name👇</b> \n<b>❗सही नाम दर्ज करें👇</b>",
                      reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(20)
+    await asyncio.sleep(30)
     await k.delete()
 
 async def global_filters(client, message, text=False):
