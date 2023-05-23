@@ -56,19 +56,19 @@ async def addconnection(client, message):
             addcon = await add_connection(str(group_id), str(userid))
             if addcon:
                 await message.reply_text(
-                    f"**📮 Successfully Connected To {title}**\n\n**Now You Can Use Me Here**",
+                    f"**😇 Successfully Connected To '{title}'**\n\n**Now You Can Get Movies/Series Here**",
                     quote=True,
                     parse_mode=enums.ParseMode.MARKDOWN
                 )
                 if chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
                     await client.send_message(
                         userid,
-                        f"Connected to **{title}** !",
+                        f"🪀 Connected to "**{title}**"!",
                         parse_mode=enums.ParseMode.MARKDOWN
                     )
             else:
                 await message.reply_text(
-                    "You're already connected to this chat!",
+                    "I'm Already Connected To This Group!",
                     quote=True
                 )
         else:
