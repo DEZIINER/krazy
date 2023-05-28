@@ -107,8 +107,13 @@ class Database:
     
     async def get_settings(self, id):
         default = {
-            'imdb': IMDB
-            
+            'button': SINGLE_BUTTON,
+            'botpm': P_TTI_SHOW_OFF,
+            'file_secure': PROTECT_CONTENT,
+            'imdb': IMDB,
+            'spell_check': SPELL_CHECK_REPLY,
+            'welcome': MELCOW_NEW_USERS,
+            'template': IMDB_TEMPLATE
         }
         chat = await self.grp.find_one({'id':int(id)})
         if chat:
