@@ -91,7 +91,7 @@ async def get_all_filters(client, message):
         filterlist = f"**🗃 Total Filters** [ {count} ]\n\n"
 
         for text in texts:
-            keywords = " ×  `{}`\n".format(text)
+            keywords = "`{}`\n".format(text)
 
             filterlist += keywords
 
