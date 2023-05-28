@@ -69,12 +69,12 @@ async def delete_filter(message, text, filters):
     if query == 1:
         mycol.delete_one(myquery)
         await message.reply_text(
-            f"'`{text}`'  deleted. I'll not respond to that gfilter anymore.",
+            f"'`{text}`' **Filter Deleted 🛃**",
             quote=True,
             parse_mode=enums.ParseMode.MARKDOWN
         )
     else:
-        await message.reply_text("Couldn't find that filter!", quote=True)
+        await message.reply_text("**🚫 No Filter With That Name!**", quote=True)
 
 async def del_all(message, filters):
     if str(filters) not in mydb.list_collection_names():
@@ -84,7 +84,7 @@ async def del_all(message, filters):
     mycol = mydb[str(filters)]
     try:
         mycol.drop()
-        await message.edit_text(f"All filters has been removed")
+        await message.edit_text(f"All Filters Deleted 🛃")
     except:
         await message.edit_text("Couldn't remove all filters!")
         return
