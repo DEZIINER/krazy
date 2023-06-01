@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import URL_SHORTENR_WEBSITE, URL_SHORTNER_WEBSITE_API 
+from info import *9
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
@@ -379,24 +379,12 @@ def humanbytes(size):
 
 async def get_shortlink(link):
     https = link.split(":")[0]
-    if "http" == https:
+       "http" == https:
         https = "https"
         link = link.replace("http", https)
-    url = f'easysky.in/api'
+    url = f'https://easysky.in/api'
     params = {'api': '8abee50e122616d233cb904039c4fe594fe8574c',
               'url': link,
               }
 
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                data = await response.json()
-                if data["status"] == "success":
-                    return data['shortenedUrl']
-                else:
-                    logger.error(f"Error: {data['message']}")
-                    return f'https://{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&link={link}'
-
-    except Exception as e:
-        logger.error(e)
-        return f'{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&link={link}'
+     
