@@ -28,7 +28,7 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     k = await global_filters(client, message)
     if k == False:
-        await auto_filter(client, message)
+    await auto_filter(client, message)
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -653,10 +653,10 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="××××× ⟨ Close ⟩ ×××××", callback_data=f'spolling#{user}#close_spellcheck')])
-    k = await msg.reply("<b>❗Enter Correct Name👇</b> \n<b>❗सही नाम दर्ज करें👇</b>",
+    shit = await msg.reply("<b>❗Enter Correct Name👇</b> \n<b>❗सही नाम दर्ज करें👇</b>",
                      reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(30)
-    await k.delete()
+    await shit.delete()
 
 async def global_filters(client, message, text=False):
     group_id = message.chat.id
