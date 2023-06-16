@@ -112,9 +112,8 @@ async def next_page(bot, query):
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
         )
-    except MessageNotModified:
-        pass
-    await query.answer()
+    
+
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
