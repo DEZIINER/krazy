@@ -129,7 +129,7 @@ async def advantage_spoll_choker(bot, query):
     if not movies:
         return await query.answer("🚫Link Expired, Request Again ♻", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer("Checking in Database, Please Wait ♻️", show_alert=True)
+    await query.answer("Checking, Please Wait ♻️ \n\n [ ᴅᴏɴ'ᴛ sᴘᴀᴍ, ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ]", show_alert=True)
     k = await global_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
