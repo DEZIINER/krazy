@@ -363,7 +363,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "filep" else False 
+                    protect_content=True 
                 )
                 await query.answer('I Sent The File To You Privately', show_alert=True)
         except UserIsBlocked:
@@ -399,7 +399,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            protect_content=True if ident == 'checksubp' else False
+            protect_content=True
         )
     elif query.data == "pages":
         await query.answer()
