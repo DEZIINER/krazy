@@ -379,7 +379,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('File Not Found')
+            return await query.answer('♨️File Not Found')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -407,7 +407,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Group ➕', callback_data='about')
             ],[
-            InlineKeyboardButton('🔅 Group', url='https://t.me/+lYD3tuR0P9szYzk9'),
+            InlineKeyboardButton('🔅 Group', url='https://telegram.me/+lYD3tuR0P9szYzk9'),
             InlineKeyboardButton('❓How To Use Me', callback_data='help')
             ],[            
             InlineKeyboardButton('🌟 Premium', switch_inline_query_current_chat=''), 
@@ -422,8 +422,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('🔆 @HeroFlix 🔆')
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('🔅 Marvel', url='https://t.me/MarvelRiders'),
-            InlineKeyboardButton('🔅 DC', url='https://t.me/DCknights')
+            InlineKeyboardButton('🔅 Marvel', url='https://telegram.me/MarvelRiders'),
+            InlineKeyboardButton('🔅 DC', url='https://telegram.me/DCknights')
         ], [
             InlineKeyboardButton('🔙 BACK', callback_data='start'),
         ]]
@@ -482,7 +482,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     await query.answer('🔆 @HeroFlix 🔆')
-
 
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
@@ -558,13 +557,11 @@ async def auto_filter(client, msg, spoll=False):
         cap = TEMPLATE.format(
             query=search,
             title=imdb['title'],
-            votes=imdb['votes'],
             aka=imdb["aka"],
             localized_title=imdb['localized_title'],
             kind=imdb['kind'],
             imdb_id=imdb["imdb_id"],
             cast=imdb["cast"],
-            runtime=imdb["runtime"],
             director=imdb["director"],
             writer=imdb["writer"],
             year=imdb['year'],
