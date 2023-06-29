@@ -49,7 +49,7 @@ async def save_group(bot, message):
             k = await message.reply_photo(
             photo="https://graph.org/file/75d4fcc66598ea1ef4941.jpg",                                               
                                                  caption=f'<b><i>🔆 "HEROFLiX • GROUP" 亗 🔆\n•───────────────────• \n⚜Hey {u.mention}, Welcome To HeroFlix • Group. You Can Request Any Movies, Web-Series, Anime, K-Dramas, Animation, etc., here....</i></b>',
-                                                 reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❗How To Request & Download❗', url='https://t.me/HeroFlix/1541') ] ] )
+                                                 reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('❗How To Request & Download❗', url='https://telegram.me/HeroFlix/2106') ] ] )
                 )
             if SELF_DELETE:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
