@@ -206,7 +206,7 @@ async def start(client, message):
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
-                protect_content=True,
+                protect_content=Flase,
                 )
             filetype = msg.media
             file = getattr(msg, filetype.value)
@@ -240,7 +240,7 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('🔆彡[ @HEROFLiX ]彡🔆', url='https://telegram.me/HeroFlix') ] ] ),
-        protect_content=True,
+        protect_content=False,
         )
                     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
