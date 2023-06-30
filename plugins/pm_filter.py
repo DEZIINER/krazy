@@ -115,9 +115,7 @@ async def next_page(bot, query):
     except MessageNotModified:
         pass
     await query.answer()
-
     
-
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
@@ -129,7 +127,7 @@ async def advantage_spoll_choker(bot, query):
     if not movies:
         return await query.answer("🚫Link Expired, Request Again ♻", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer("Checking, Please Wait ♻️ \n\n[ ᴅᴏɴ'ᴛ ᴄʟɪᴄᴋ ᴀɢᴀɪɴ & ᴀɢᴀɪɴ, ᴊᴜsᴛ ᴡᴀɪᴛ ᴀ ꜰᴇᴡ sᴇᴄᴏɴᴅs!!! ]", show_alert=True)
+    await query.answer("Checking, Please Wait ♻️ \n\n[ ᴅᴏɴ'ᴛ sᴘᴀᴍ, ᴊᴜsᴛ ᴡᴀɪᴛ! ]", show_alert=True)
     k = await global_filters(bot, query.message, text=movie)
     if k == False:
         files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
@@ -555,7 +553,6 @@ async def auto_filter(client, msg, spoll=False):
     TEMPLATE = settings['template']
     if imdb:
         cap = TEMPLATE.format(
-            query=search,
             title=imdb['title'],
             aka=imdb["aka"],
             localized_title=imdb['localized_title'],
@@ -720,4 +717,3 @@ async def global_filters(client, message, text=False):
                 break
     else:
         return False
-
