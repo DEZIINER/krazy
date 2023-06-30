@@ -17,8 +17,7 @@ class script(object):
 
 1. Click on "</i><i><b>Click Here To Add Me</b>" 
 2. Select Your Group
-3. Make Me Admin in Your Group
-4. Send /connect in Your Group</i>"""    
+3. Make Me Admin in Your Group</i>"""    
     
     STATUS_TXT = """<b>🎗️ My Statistics 📲</b>
 ◉ <b>Total Files :</b> {}
