@@ -7,7 +7,6 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-
 @Client.on_message((filters.private | filters.group) & filters.command('connect'))
 async def addconnection(client, message):
     userid = message.from_user.id if message.from_user else None
@@ -77,7 +76,6 @@ async def addconnection(client, message):
         logger.exception(e)
         await message.reply_text('Some error occurred! Try again later.', quote=True)
         return
-
 
 @Client.on_message((filters.private | filters.group) & filters.command('disconnect'))
 async def deleteconnection(client, message):
