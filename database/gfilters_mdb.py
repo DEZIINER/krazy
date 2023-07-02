@@ -8,8 +8,6 @@ logger.setLevel(logging.ERROR)
 myclient = pymongo.MongoClient(DATABASE_URI)
 mydb = myclient["GlobalFilters"]
 
-
-
 async def add_filter(filters, text, reply_text, btn, file, alert):
     mycol = mydb[str(filters)]
     # mycol.create_index([('text', 'text')])
