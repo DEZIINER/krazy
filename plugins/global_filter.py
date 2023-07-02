@@ -13,7 +13,6 @@ from database.connections_mdb import active_connection
 from utils import get_file_id, parser, split_quotes
 from info import ADMINS
 
-
 @Client.on_message(filters.command(['add']) & filters.incoming & filters.user(ADMINS))
 async def addfilter(client, message):
     args = message.text.html.split(None, 1)
@@ -82,7 +81,6 @@ async def addfilter(client, message):
         parse_mode=enums.ParseMode.MARKDOWN
     )
 
-
 @Client.on_message(filters.command(['filters']) & filters.incoming & filters.user(ADMINS))
 async def get_all_filters(client, message):
     texts = await get_filters('filters')
@@ -128,7 +126,6 @@ async def deletefilter(client, message):
 
     await delete_filter(message, query, 'filters')
 
-
 @Client.on_message(filters.command('delall') & filters.user(ADMINS))
 async def delallfill(client, message):
     await message.reply_text(
@@ -140,13 +137,7 @@ async def delallfill(client, message):
             quote=True
         )
 
-
 @Client.on_callback_query(filters.regex("gconforme"))
 async def dellacbd(client, message):
     await del_all(message.message, 'filters')
     return await message.reply("👍 Done")
-
-
-
-
-
