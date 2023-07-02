@@ -12,7 +12,6 @@ from info import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FILTE
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
 client = AsyncIOMotorClient(DATABASE_URI)
 db = client[DATABASE_NAME]
 instance = Instance.from_db(db)
@@ -31,11 +30,8 @@ class Media(Document):
         indexes = ('$file_name', )
         collection_name = COLLECTION_NAME
 
-
 async def save_file(media):
     """Save file in database"""
-
-    # TODO: Find better way to get same file_id for same media to avoid duplicates
     file_id, file_ref = unpack_new_file_id(media.file_id)
     file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
     try:
@@ -63,8 +59,6 @@ async def save_file(media):
         else:
             logger.info(f'{getattr(media, "file_name", "NO_FILE")} is saved to database')
             return True, 1
-
-
 
 async def get_search_results(query, file_type=None, max_results=10, offset=0, filter=False):
     """For given query return (results, next_offset)"""
@@ -110,14 +104,11 @@ async def get_search_results(query, file_type=None, max_results=10, offset=0, fi
 
     return files, next_offset, total_results
 
-
-
 async def get_file_details(query):
     filter = {'file_id': query}
     cursor = Media.find(filter)
     filedetails = await cursor.to_list(length=1)
     return filedetails
-
 
 def encode_file_id(s: bytes) -> str:
     r = b""
@@ -135,10 +126,8 @@ def encode_file_id(s: bytes) -> str:
 
     return base64.urlsafe_b64encode(r).decode().rstrip("=")
 
-
 def encode_file_ref(file_ref: bytes) -> str:
     return base64.urlsafe_b64encode(file_ref).decode().rstrip("=")
-
 
 def unpack_new_file_id(new_file_id):
     """Return file_id, file_ref"""
