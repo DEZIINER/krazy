@@ -53,5 +53,3 @@ async def showid(client, message):
             _id,
             quote=True
         )
-
-
