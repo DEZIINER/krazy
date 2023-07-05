@@ -16,56 +16,67 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/AM-ROBOTS/AM-ROBOTS",
-    "repository": "https://github.com/AM-ROBOTS/AM-ROBOTS",
+    "website": "https://telegram.me/HeroFlix",
+    "repository": "https://github.com/TeenOfFire/Cheryl",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
+            "value": "6159823074:AAGnPBxIMiwaSBPrDEk7xLuImifx84iBXDU",
             "required": true
         },
         "API_ID": {
             "description": "Get this value from https://my.telegram.org",
+            "value": "1736204",
             "required": true
         },
         "API_HASH": {
             "description": "Get this value from https://my.telegram.org",
+            "value": "890d40e0f91a4de32dec2965444b2cbe",
             "required": true
         },
         "CHANNELS": {
             "description": "Username or ID of channel or group. Separate multiple IDs by space.",
+            "value": "-1001638006524",
             "required": false
         },
         "ADMINS": {
             "description": "Username or ID of Admin. Separate multiple Admins by space.",
+            "value": "1058015838",
             "required": true
         },
         "PICS": {
             "description": "Add some telegraph link of pictures .",
+            "value": "https://te.legra.ph/file/343a6705d3bcabe7335fb.jpg https://graph.org/file/f612a75d2304d0fea7ce6.jpg https://graph.org/file/c5c38a0cf5e83726ab894.jpg https://te.legra.ph/file/9fb4b45e12ec4f095cf38.jpg https://te.legra.ph/file/d425acf6985b1ea7fe489.jpg https://te.legra.ph/file/d36afb7873082fa568806.jpg https://te.legra.ph/file/b9fee7535941b63fe6920.jpg",
             "required": false
         },
         "LOG_CHANNEL": {
             "description": "Bot Logs,Give a channel id with -100xxxxxxx",
+            "value": "-1001652564383",
             "required": true
         },
         "AUTH_USERS": {
             "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
+            "value": "1058015838",
             "required": false
         },
         "AUTH_CHANNEL": {
             "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
+            "value": "-1001521700370",
             "required": false
         },
         "DATABASE_URI": {
             "description": "mongoDB URI. Get this value from https://www.mongodb.com. For more help watch this video - https://youtu.be/h9QjSSmk5tw",
+            "value": "mongodb+srv://cheryl:cheryl@cheryl.v9cadpe.mongodb.net/?retryWrites=true&w=majority",
             "required": true
         },
         "DATABASE_NAME": {
             "description": "Name of the database in mongoDB. For more help watch this video - https://youtu.be/h9QjSSmk5tw",
+            "value": "cheryl",
             "required": false
         },
         "COLLECTION_NAME": {
             "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
-            "value": "Anurag_files",
+            "value": "cheryl",
             "required": false
         }
     },
