@@ -1,3 +1,1 @@
-worker: python3 <start directory>
-
-ex: main.py
+worker: python3 <start director>
