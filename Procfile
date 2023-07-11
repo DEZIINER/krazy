@@ -1,1 +1,1 @@
-worker: python3 <start director>
+web: python3 bot.py
